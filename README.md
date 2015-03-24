@@ -3,7 +3,7 @@ A command line interface (CLI) application to execute Eclipse Query/View/Transfo
 
 qvto-cli consists of two sub-components:
 
-* qvt-bundle: This is a Maven artifact which contains all QVTo standalone Eclipse plug-in (jar) dependencies.
+* qvt-bundle: This is a Maven artifact which contains all QVTo standalone Eclipse plug-in (jar) dependencies. This is achieved by using [Eclipse Tycho](https://eclipse.org/tycho/).
 * qvto-app: This is a slim CLI app build to access Eclipse QVTo from the command line. 
 
 # Prerequisites
@@ -14,7 +14,11 @@ qvto-cli consists of two sub-components:
 
 # Build procedure
 
+1. Clone this GIT repository and `cd` into it.
+2. `(cd qvto-bundle && mvn clean install)`
+3. `(cd qvto-app && mvn clean compile package)`
 
+Note that Step 2 might require a considerable amount of time on the first run, because the corresponding Eclipse release (P2) repository is cloned and mirrored on your machine.
 
 # Usage
 
