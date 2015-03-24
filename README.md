@@ -1,5 +1,5 @@
 # On "qvto-cli"
-A command line interface (CLI) application to execute Eclipse Query/View/Transformation Operational (QVTo) model transformations without having Eclipse IDE installed. The build procedure is fully automated using Maven, including resolution of Eclipse dependencies. The resulting artifact is a standalone jar which can be deployed and executed as-is. The aim is to provide a CLI component which can be glued to form composite applications and, thereby, make QVTo model transformations available to a broader range of (non-Java) applications.
+A command line interface (CLI) application to execute [Eclipse Query/View/Transformation Operational (QVTo)](https://projects.eclipse.org/projects/modeling.mmt.qvt-oml) model transformations without having [Eclipse modeling IDE](https://eclipse.org/modeling/) installed. The build procedure is fully automated using Maven, including resolution of Eclipse dependencies. The resulting artifact is a standalone jar which can be deployed and executed as-is. The aim is to provide a CLI component which can be glued to form composite applications and, thereby, make QVTo model transformations available to a broader range of (non-Java) applications.
 
 qvto-cli consists of two sub-components:
 
@@ -15,7 +15,7 @@ qvto-cli consists of two sub-components:
 # Build procedure
 
 1. Clone this GIT repository and `cd` into it.
-2. `(cd qvto-bundle && mvn clean install)`
+2. `(cd qvt-bundle && mvn clean install)`
 3. `(cd qvto-app && mvn clean compile package)`
 
 Note that Step 2 might require a considerable amount of time on the first run, because the corresponding Eclipse release (P2) repository is cloned and mirrored on your machine.
