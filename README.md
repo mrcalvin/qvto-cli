@@ -39,3 +39,8 @@ Usage: java -jar qvto-app-0.1-SNAPSHOT.jar [options]
 
 Beware that this project is work in progress. `qvto-app` is only a minimal viable software product to learn more about possible usage scenarios and meant for demonstration purposes. The CL interface is only exemplary and the app implementation rather bold. `qvt-bundle` represents only one approach to render Eclipse dependencies available in a Maven setup and some decisions might be revised in the future (using the Eclipse Jar-in-Jar class loader, bundling all Eclipse jars along with their unpacked content in the Maven artifact jar etc.).
 
+As of this writing, `qvto-cli` was only tested against:
+
+* Eclipse 4.4 Luna
+* Eclipse QVTo 3.4.0
+
