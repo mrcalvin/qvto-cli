@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product uid="qvto.product" id="org.eclipse.platform.ide"
+	 version="1.0.0.qualifier" useFeatures="false"
+	 includeLaunchers="false" name="qvto">
+
+   <plugins>
+
+     <!-- Plug-in dependencies (compile time) -->
+     
+      <plugin id="lpg.runtime.java"/>
+      <plugin id="org.eclipse.emf.common"/>
+      <plugin id="org.eclipse.emf.ecore"/>
+      <plugin id="org.eclipse.emf.ecore.xmi"/>
+      <plugin id="org.eclipse.m2m.qvt.oml"/>
+      <plugin id="org.eclipse.m2m.qvt.oml.common"/>
+      <plugin id="org.eclipse.m2m.qvt.oml.cst.parser"/>
+      <plugin id="org.eclipse.m2m.qvt.oml.ecore.imperativeocl"/>
+      <plugin id="org.eclipse.m2m.qvt.oml.emf.util"/>
+      <plugin id="org.eclipse.ocl"/>
+      <plugin id="org.eclipse.ocl.common"/>
+      <plugin id="org.eclipse.ocl.ecore"/>
+      <plugin id="org.eclipse.uml2"/>
+      <plugin id="org.eclipse.uml2.common"/>
+      <plugin id="org.eclipse.uml2.types"/>
+      <plugin id="org.eclipse.uml2.uml"/>
+
+      <!-- Plug-in dependencies (runtime)-->
+      
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.equinox.common"/>
+
+       <!-- A plugin providing the jar-in-jar class loader
+	    infrastructure -->
+      
+      <plugin id="org.eclipse.jdt.ui" />
+
+      <!-- Other plugin dependencies, not required at compile or at runtime.
+	   
+	  <plugin id="org.eclipse.core.runtime.compatibility.registry"/>
+	  <plugin id="org.eclipse.osgi"/>
+	  <plugin id="org.eclipse.osgi.compatibility.state"/>
+	  <plugin id="org.eclipse.core.jobs"/>
+	  <plugin id="org.eclipse.equinox.registry"/>
+	  <plugin id="org.eclipse.equinox.preferences"/>
+	  <plugin id="org.eclipse.core.contenttype"/>
+	  <plugin id="org.eclipse.equinox.app"/>
+	  <plugin id="javax.annotation"/>
+	  <plugin id="javax.inject"/>
+	  
+      -->
+      
+   </plugins>
+
+</product>

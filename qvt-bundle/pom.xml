@@ -1,0 +1,151 @@
+<project>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>at.ac.wu.nm</groupId>
+  <artifactId>qvt-bundle</artifactId>
+  <version>4.4</version>
+  <packaging>eclipse-repository</packaging>
+
+   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <repositories>
+    <repository>
+      <id>luna</id>
+      <layout>p2</layout>
+      <url>http://download.eclipse.org/releases/luna</url>
+    </repository>
+  </repositories>
+  
+  <build>
+    <plugins>
+      <plugin>
+	<groupId>org.eclipse.tycho</groupId>
+	<artifactId>tycho-maven-plugin</artifactId>
+	<version>0.22.0</version>
+	<extensions>true</extensions>
+	<configuration>
+          <includeAllDependencies>true</includeAllDependencies>
+	</configuration>
+      </plugin>
+      <plugin>
+	<groupId>org.eclipse.tycho.extras</groupId>
+	<artifactId>tycho-p2-extras-plugin</artifactId>
+	<version>0.22.0</version>
+      </plugin>
+      <!-- essentially here to silence a Tycho x-compilation warning
+	   (strictly not  required for our re-packaging job -->
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>0.22.0</version>
+        <configuration>
+          <environments>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86_64</arch>
+            </environment>
+          </environments>
+        </configuration>
+      </plugin>
+     <plugin>
+	<artifactId>maven-antrun-plugin</artifactId>
+	<version>1.8</version>
+	<executions>
+          <execution>
+            <phase>package</phase>
+            <configuration>
+              <target>
+		<unzip
+		    dest="${project.build.directory}/dependency">
+		  <fileset
+		      dir="${project.build.directory}/repository/plugins/">
+		    <include name="org.eclipse.jdt.ui*.jar" />
+		  </fileset>    
+		  <patternset>
+		    <include name="**/jar-in-jar-loader.zip"/>
+		  </patternset>
+		</unzip>
+		<unzip src="${project.build.directory}/dependency/jar-in-jar-loader.zip" dest="${project.build.directory}/dependency"/>
+		<copy todir="${project.build.directory}/dependency">
+		  <fileset dir="${project.build.directory}/repository/plugins/">
+		    <include name="**/*.jar" />
+		  </fileset>    
+		</copy>
+		<unzip dest="${project.build.directory}/dependency">
+		    <fileset
+			dir="${project.build.directory}/dependency">
+		    <include name="*.jar" />
+		  </fileset>    
+		</unzip>
+		 <delete>
+		  <fileset
+		      dir="${project.build.directory}/dependency">
+		    <include name="org.eclipse.jdt.ui*.jar" />
+		    <include name="jar-in-jar-loader.zip" />
+		  </fileset>    
+		 </delete>
+
+		 <pathconvert property="manifest.classpath" pathsep=" ">
+		   <map from="${project.build.directory}/dependency/" to=""/>
+		   <fileset dir="${project.build.directory}/dependency">
+		     <filename name="*.jar" />
+		   </fileset>
+		 </pathconvert>
+		 
+		 <!-- <echo message="Manifest Classpath:
+				${manifest.classpath}" /> -->
+
+		 <manifest
+		     file="${project.build.directory}/MANIFEST.MF">
+		   <attribute name="Rsrc-Class-Path" value="./ ${manifest.classpath}"/>
+		   <attribute name="Class-Path" value="."/>
+		   <attribute name="Rsrc-Main-Class" value=""/>
+		   <attribute name="Main-Class"
+			      value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+		 </manifest>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+	</executions>
+      </plugin>
+      <plugin>
+	<artifactId>maven-assembly-plugin</artifactId>
+	<version>2.5.3</version>
+	<configuration>
+          <descriptors>
+            <descriptor>qvto-repackaged.xml</descriptor>
+          </descriptors>
+          <archive>
+            <manifestFile>${project.build.directory}/MANIFEST.MF</manifestFile>
+          </archive>
+	</configuration>
+	<executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>
