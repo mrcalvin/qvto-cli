@@ -1,0 +1,31 @@
+modeltype mmsource "strict" uses "http://www.mmsource.fr";
+	
+
+transformation TransformationABC(in source: mmsource, out target:mmsource);
+
+main() {
+	source.rootObjects()[root] . map Root2Root();
+}
+
+mapping root::Root2Root() : root {
+	result.element += self.element ->select(a |a.oclIsKindOf(A))[A]-> map A2B();
+	result.element += self.element ->select(b |b.oclIsKindOf(B))[B]-> map B2B();
+	result.element += self.element ->select(c |c.oclIsKindOf(C))[C]-> map C2C();	
+}
+
+
+mapping A::A2B() : B 
+	when {self.Id > 0 }
+{
+	result.Id := self.Id;
+	result.b := self.a+" work at FraBen Company";
+}
+
+mapping B::B2B() : B {
+	result.Id := self.Id;
+	result.b := self.b;	
+}
+mapping C::C2C() : C {
+	result.Id := self.Id;
+	result.c := self.c;	
+}
