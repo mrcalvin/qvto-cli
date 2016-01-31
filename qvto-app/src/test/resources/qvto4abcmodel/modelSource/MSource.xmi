@@ -4,7 +4,7 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:mmsource="http://www.mmsource.fr"
-    xsi:schemaLocation="http://www.mmsource.fr ../MModelSource/MMSource.ecore">
+    xsi:schemaLocation="http://www.mmsource.fr MMSource.ecore">
   <element xsi:type="mmsource:A"
       Id="-5"
       a="Benoit"/>

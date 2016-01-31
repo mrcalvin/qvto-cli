@@ -1,4 +1,5 @@
-modeltype mmsource "strict" uses "http://www.mmsource.fr";
+modeltype mmsource "strict" uses 'http://www.mmsource.fr';
+//modeltype mmsource "strict" uses mmsource('http://www.mmsource.fr');
 	
 
 transformation TransformationABC(in source: mmsource, out target:mmsource);
