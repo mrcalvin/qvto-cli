@@ -24,6 +24,12 @@
 	<artifactId>jcommander</artifactId>
 	<version>1.47</version>
     </dependency>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>6.9.8</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   
   <build>
@@ -115,6 +121,39 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+       <artifactId>maven-surefire-plugin</artifactId>
+       <version>2.19.1</version>
+       <configuration>
+         <suiteXmlFiles>
+           <suiteXmlFile>src/test/testng.xml</suiteXmlFile>
+         </suiteXmlFiles>
+	  <additionalClasspathElements>
+            <additionalClasspathElement>${project.build.directory}/lpg.runtime.java_2.0.17.v201004271640.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.core.runtime_3.10.0.v20140318-2214.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.emf.common_2.10.1.v20150123-0348.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.emf.ecore.xmi_2.10.2.v20150123-0348.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.emf.ecore_2.10.2.v20150123-0348.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.equinox.common_3.6.200.v20130402-1505.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.m2m.qvt.oml.common_3.4.0.v20140306-0649.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.m2m.qvt.oml.cst.parser_3.4.0.v20140429-1120.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.m2m.qvt.oml.cst.parser_3.4.0.v20140429-1120.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.m2m.qvt.oml.ecore.imperativeocl_3.3.0.v20140317-1132.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.m2m.qvt.oml.emf.util_3.4.0.v20140306-0718.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.m2m.qvt.oml_3.4.1.v20150201-1444.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.ocl.common_1.2.0.v20140610-0641.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.ocl.ecore_3.3.100.v20140610-0641.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.ocl_3.4.2.v20140725-2242.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.uml2.common_2.0.1.v20150202-0947.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.uml2.types_2.0.0.v20150202-0947.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.uml2.uml_5.0.2.v20150202-0947.jar</additionalClasspathElement>
+	    <additionalClasspathElement>${project.build.directory}/org.eclipse.uml2_5.0.0.v20150202-0947.jar</additionalClasspathElement>
+          </additionalClasspathElements>
+	  <classpathDependencyExcludes>
+            <classpathDependencyExcludes>at.ac.wu.nm:qvt-bundle</classpathDependencyExcludes>
+          </classpathDependencyExcludes>
+       </configuration>
+     </plugin>
     </plugins>
   </build>
   
