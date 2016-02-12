@@ -55,10 +55,10 @@
                    <artifactId>qvt-bundle</artifactId>
                    <version>4.4</version>
 		   <classifier>repackaged</classifier>
-                   <type>jar</type>
                    <overWrite>false</overWrite>
                    <outputDirectory>${project.build.directory}</outputDirectory>
                    <includes>META-INF/MANIFEST.MF</includes>
+		   <includes>*.jar</includes>
                  </artifactItem>
                </artifactItems>
              </configuration>
