@@ -1,3 +1,5 @@
+package at.ac.wu.nm.qvto;
+
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.*;
@@ -31,13 +33,13 @@ public class BasicTest {
 
 		String[] args= new String[8];
 		args[0]="-xform";
-		args[1]="/tmp/transformationABC.qvto";
+		args[1]="src/test/resources/qvto4abcmodel/sample/transformationABC.qvto";
 		args[2]="-src";
-		args[3]="/tmp/MMSource.ecore";
-		args[4]="/tmp/MSource.xmi";
+		args[3]="src/test/resources/qvto4abcmodel/sample/MMSource.ecore";
+		args[4]="src/test/resources/qvto4abcmodel/sample/MSource.xmi";
 		args[5]="-tgt";
-		args[6]="/tmp/MMSource.ecore";
-		args[7]="/tmp/my.xmi";
+		args[6]="src/test/resources/qvto4abcmodel/sample/MMSource.ecore";
+		args[7]="src/test/resources/qvto4abcmodel/sample/Mtarget.xmi";
 
 
 		App app = new App();
