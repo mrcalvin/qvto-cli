@@ -63,8 +63,7 @@
 		   <classifier>repackaged</classifier>
                    <overWrite>false</overWrite>
                    <outputDirectory>${project.build.directory}</outputDirectory>
-                   <includes>META-INF/MANIFEST.MF</includes>
-		   <includes>*.jar</includes>
+                   <includes>META-INF/MANIFEST.MF,*.jar</includes>
                  </artifactItem>
                </artifactItems>
              </configuration>
