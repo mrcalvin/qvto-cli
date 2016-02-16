@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
     <classes>
-      <class name="BasicTest"/>
+      <class name="at.ac.wu.nm.qvto.BasicTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmsource:root xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mmsource="http://www.mmsource.fr" xsi:schemaLocation="http://www.mmsource.fr ./MMSource.ecore">
+  <element xsi:type="mmsource:B" Id="10" b="Quentin travail à Nano-Innov"/>
+  <element xsi:type="mmsource:B" b="Bob"/>
+  <element xsi:type="mmsource:C" Id="15" c="Anthony"/>
+</mmsource:root>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mmsource:root
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mmsource="http://www.mmsource.fr"
+    xsi:schemaLocation="MMSource.ecore">
+  <element xsi:type="mmsource:A"
+      Id="-5"
+      a="Benoit"/>
+  <element xsi:type="mmsource:A"
+      a="François">
+    <abc xsi:type="mmsource:B"
+        b="Vincent"/>
+  </element>
+  <element xsi:type="mmsource:A"
+      Id="10"
+      a="Quentin"/>
+  <element xsi:type="mmsource:B"
+      b="Bob"/>
+  <element xsi:type="mmsource:C"
+      Id="15"
+      c="Anthony"/>
+</mmsource:root>
