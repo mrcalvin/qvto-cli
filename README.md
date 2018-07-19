@@ -10,7 +10,7 @@ A command line interface (CLI) application to execute [Eclipse Query/View/Transf
 
 * Maven 3.2.5
 * Ant 1.9+
-* Java 1.7
+* Java ~~1.7~~ 1.8
 
 # Build procedure
 
